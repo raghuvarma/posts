@@ -5,7 +5,10 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		render plain: params[:article].inspect
+		@post = Post.new(params[:post])
+
+		@post.save
+		redirect_to @post
 	end
 
 end
